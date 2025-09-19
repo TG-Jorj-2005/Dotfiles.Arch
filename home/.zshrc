@@ -44,7 +44,7 @@ PS1='%F{cyan}%n@%m%f:%F{yellow}%~%f$ '
 #Shortcut uri
 jrj(){
  git add .
- git commit -m "Commit #$(git rev-list --count HEAD) at $(date '+%Y-%m-%d %H:%M:%S')"
+ git commit -m "Auto-update $(date)"
  git push 
 
 }
