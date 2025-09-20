@@ -29,12 +29,6 @@ PLUGIN_DIR="$HOME/.config/zsh/plugins"
 [[ -f "$PLUGIN_DIR/zsh-completions/zsh-completions.plugin.zsh" ]] &&
     source "$PLUGIN_DIR/zsh-completions/zsh-completions.plugin.zsh"
 
-if [[ -d ~/.config/zsh ]] then
-for file in ~/.config/zsh/*.zsh; do
-	[[ -r "$file" ]] && source "$file"
-done
-
-fi
 
 
 
