@@ -49,3 +49,5 @@ jrj(){
 
 }
 
+#Aliasuri
+alias ue='stow -t ~/.config config'
