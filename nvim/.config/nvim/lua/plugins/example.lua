@@ -195,23 +195,7 @@ return {
     },
   },
 
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
-    dependencies = {
-      { "github/copilot.vim" },
-      { "nvim-lua/plenary.nvim" },
-    },
-    opts = {
-      debug = true,
-    },
-    keys = {
-      { "<leader>cc", "<cmd>CopilotChat<cr>",         desc = "CopilotChat" },
-      { "<leader>ce", "<cmd>CopilotChatExplain<cr>",  desc = "CopilotChat - Explain code" },
-      { "<leader>ct", "<cmd>CopilotChatTests<cr>",    desc = "CopilotChat - Generate tests" },
-      { "<leader>cr", "<cmd>CopilotChatReview<cr>",   desc = "CopilotChat - Review code" },
-      { "<leader>cf", "<cmd>CopilotChatRefactor<cr>", desc = "CopilotChat - Refactor code" },
-    },
-  },
+  { import = "lazyvim.plugins.extras.coding.copilot" },
+  { import = "lazyvim.plugins.extras.coding.copilot-chat" },
 
 }
