@@ -1,75 +1,71 @@
 [colors.primary]
-background = "#1E1E2E"
-foreground = "#CDD6F4"
-dim_foreground = "#CDD6F4"
-bright_foreground = "#CDD6F4"
+background = "#16161e"    # Mai închis decât originalul pentru mai mult contrast
+foreground = "#c0caf5"    # Albastru-alb pentru text clar
+dim_foreground = "#737aa2" # Text estompat
 
 [colors.cursor]
-text = "#1E1E2E"
-cursor = "#F5E0DC"
+text = "#16161e"
+cursor = "#c0caf5"
 
 [colors.vi_mode_cursor]
-text = "#1E1E2E"
-cursor = "#B4BEFE"
+text = "#16161e" 
+cursor = "#bb9af7"        # Violet pentru vi mode
 
 [colors.search.matches]
-foreground = "#1E1E2E"
-background = "#A6ADC8"
+foreground = "#16161e"
+background = "#f7768e"    # Roz pentru matches
 
 [colors.search.focused_match]
-foreground = "#1E1E2E"
-background = "#A6E3A1"
-
-[colors.footer_bar]
-foreground = "#1E1E2E"
-background = "#A6ADC8"
+foreground = "#16161e"
+background = "#e0af68"    # Galben pentru match-ul activ
 
 [colors.hints.start]
-foreground = "#1E1E2E"
-background = "#F9E2AF"
+foreground = "#16161e"
+background = "#e0af68"
 
 [colors.hints.end]
-foreground = "#1E1E2E"
-background = "#A6ADC8"
+foreground = "#16161e"
+background = "#f7768e"
+
+[colors.line_indicator]
+foreground = "None"
+background = "None"
+
+[colors.footer_bar]
+foreground = "#c0caf5"
+background = "#16161e"
 
 [colors.selection]
-text = "#1E1E2E"
-background = "#F5E0DC"
+text = "CellForeground"
+background = "#364a82"    # Albastru închis pentru selecție
 
+# Culori normale - Tokyo Night enhanced
 [colors.normal]
-black = "#45475A"
-red = "#F38BA8"
-green = "#A6E3A1"
-yellow = "#F9E2AF"
-blue = "#89B4FA"
-magenta = "#F5C2E7"
-cyan = "#94E2D5"
-white = "#BAC2DE"
+black = "#15161e"         # Negru mai profund
+red = "#f7768e"           # Roz-roșu vibrant (îmbunătățit)
+green = "#9ece6a"         # Verde strălucitor
+yellow = "#e0af68"        # Galben auriu cald
+blue = "#7aa2f7"          # Albastru intens
+magenta = "#bb9af7"       # Violet strălucitor
+cyan = "#7dcfff"          # Cyan electric
+white = "#a9b1d6"         # Alb-gri pentru text normal
 
+# Culori strălucitoare - versiuni enhanced
 [colors.bright]
-black = "#585B70"
-red = "#F38BA8"
-green = "#A6E3A1"
-yellow = "#F9E2AF"
-blue = "#89B4FA"
-magenta = "#F5C2E7"
-cyan = "#94E2D5"
-white = "#A6ADC8"
-
-[colors.dim]
-black = "#45475A"
-red = "#F38BA8"
-green = "#A6E3A1"
-yellow = "#F9E2AF"
-blue = "#89B4FA"
-magenta = "#F5C2E7"
-cyan = "#94E2D5"
-white = "#BAC2DE"
+black = "#414868"         # Gri pentru comentarii
+red = "#ff7a93"           # Roșu mai strălucitor
+green = "#b9f27c"         # Verde mai vibrant
+yellow = "#ff9e64"        # Portocaliu-galben cald
+blue = "#7da6ff"          # Albastru mai strălucitor
+magenta = "#c0a7fa"       # Violet mai deschis
+cyan = "#89ddff"          # Cyan mai intens
+white = "#c0caf5"         # Alb pur pentru text important
 
 [[colors.indexed_colors]]
 index = 16
-color = "#FAB387"
+color = "#ff9e64"         # Portocaliu pentru constante
 
 [[colors.indexed_colors]]
 index = 17
-color = "#F5E0DC"
+color = "#db4b4b"         # Roșu închis pentru erori
+
