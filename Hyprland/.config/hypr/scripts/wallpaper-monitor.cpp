@@ -3,21 +3,31 @@
 #include <chrono>
 #include <thread>
 #include <cstdlib>
+#include <fstream>
 
 using namespace std; // Adăugat pentru endl
 
+void log_message(const string& message) {
+    ofstream logfile("/tmp/swww_monitor.log", ios::app);
+    auto now = chrono::system_clock::now();
+    time_t tt = chrono::system_clock::to_time_t(now);
+    logfile << ctime(&tt) << ": " << message << endl;
+    logfile.close();
+    cout << message << endl;
+}
+
 int main() {
-    std::cout << "Starting SWWW monitor..." << std::endl;
+    log_message("Starting SWWW monitor...");
     
     while (true) {
         std::this_thread::sleep_for(std::chrono::seconds(60)); // seconds nu second
-        std::cout << "Verificare swww-daemon" << std::endl; // endl nu "endl"
+        log_message("Verificare swww-daemon");
         
         // Verifică dacă swww-daemon rulează
         int result = std::system("pgrep swww-daemon > /dev/null 2>&1");
         
         if (result != 0) {
-            std::cout << "swww-daemon nu rulează, îl repornim..." << std::endl;
+            log_message("swww-daemon nu rulează, îl repornim...");
             
             // Pornește daemon-ul (fără & în system())
             std::system("swww-daemon &");
@@ -29,14 +39,14 @@ int main() {
             int wallpaper_result = std::system("swww img ~/Pictures/output1.gif");
             
             if (wallpaper_result == 0) {
-                std::cout << "Wallpaper setat cu succes!" << std::endl;
+                log_message("Wallpaper setat cu succes!");
             } else {
-                std::cout << "Eroare la setarea wallpaper-ului!" << std::endl;
+                log_message("Eroare la setarea wallpaper-ului!");
             }
         } else {
-            std::cout << "swww-daemon rulează normal." << std::endl;
+            log_message("swww-daemon rulează normal.");
         }
     }
     
-    return 0;
+    return 0;    return 0;
 }
