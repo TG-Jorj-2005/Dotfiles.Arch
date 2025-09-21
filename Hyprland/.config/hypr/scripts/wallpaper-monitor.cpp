@@ -36,7 +36,7 @@ int main() {
             std::this_thread::sleep_for(std::chrono::seconds(3)); // mai mult timp
             
             // Setează wallpaper-ul
-            int wallpaper_result = std::system("swww img ~/Pictures/output1.gif");
+            int wallpaper_result = std::system("swww img ~/Pictures/output2.gif");
             
             if (wallpaper_result == 0) {
                 log_message("Wallpaper setat cu succes!");
