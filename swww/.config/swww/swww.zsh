@@ -3,7 +3,7 @@
 # Script pentru wallpaper GIF animat cu swww
 # Salvează ca ~/.local/bin/swww-gif.sh
 
-GIF_PATH="$HOME/Pictures/astro.gif"
+GIF_PATH="$HOME/Downloads/output.gif"
 FRAMES_DIR="$HOME/.cache/swww-frames"
 DELAY=0.1  # Delay între frame-uri (în secunde)
 
