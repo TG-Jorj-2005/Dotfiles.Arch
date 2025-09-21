@@ -1,0 +1,40 @@
+@define-color red #f7768e;
+@define-color orange #ff9e64;
+@define-color yellow #e0af68;
+@define-color green #9ece6a;
+@define-color cyan #73daca;
+@define-color blue #7aa2f7;
+@define-color purple #bb9af7;
+@define-color magenta #ad8ee6;
+@define-color pink #ff7a93;
+@define-color teal #1abc9c;
+
+@define-color bright-red #ff5370;
+@define-color bright-orange #ffab70;
+@define-color bright-yellow #ffc777;
+@define-color bright-green #c3e88d;
+@define-color bright-cyan #89ddff;
+@define-color bright-blue #82aaff;
+@define-color bright-purple #c792ea;
+@define-color bright-magenta #c099ff;
+
+@define-color text #c0caf5;
+@define-color subtext1 #a9b1d6;
+@define-color subtext0 #9aa5ce;
+@define-color overlay2 #7982a9;
+@define-color overlay1 #565f89;
+@define-color overlay0 #414868;
+
+@define-color surface2 #32344a;
+@define-color surface1 #292e42;
+@define-color surface0 #24283b;
+@define-color base #1a1b26;
+@define-color mantle #16161e;
+@define-color crust #0f0f14;
+
+@define-color comment #565f89;
+@define-color dark #15161e;
+@define-color darker #101014;
+@define-color border #29a4bd;
+@define-color selection #283457;
+@define-color nontext #545c7e;
