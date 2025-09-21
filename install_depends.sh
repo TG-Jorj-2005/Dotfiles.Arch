@@ -136,7 +136,8 @@ yay -S --needed --noconfirm \
 # ==================== FONTS ====================
 # Install nerd-fonts cu opțiunea default pentru toate întrebările
 print_status "Instalez Nerd Fonts (va dura câteva minute)..."
-echo -e "\n" | yay -S --needed nerd-fonts-complete
+echo -e "\n" | sudo pacman -S nerd-fonts
+print_status "Sugerez Varianta default dar tu stii cel mai bine"
 
 # ==================== AUDIO ====================
 print_status "Instalez sistem audio..."
