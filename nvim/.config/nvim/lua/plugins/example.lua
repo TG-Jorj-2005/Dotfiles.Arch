@@ -10,12 +10,7 @@ if true then return {} end
 -- * override the configuration of LazyVim plugins
 return {
 
-  {
-    "lambdalisue/suda.vim",
-    config = function()
-      vim.g.suda_smart_edit = 1
-    end,
-  },
+
   -- add gruvbox
   { "ellisonleao/gruvbox.nvim" },
 
