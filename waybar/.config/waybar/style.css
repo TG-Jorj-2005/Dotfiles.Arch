@@ -1,70 +1,165 @@
 * {
-  background-color: transparent ;
-  font-family: "FiraCode Nerd Font", "JetBrainsMono Nerd Font", monospace;
+    border: none;
+    border-radius: 0;
+    font-family: "FiraCode Nerd Font", "JetBrainsMono Nerd Font", monospace;
+    font-weight: bold;
+    font-size: 11px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
 }
- .window{
-   background-color: transparent;
- }
-  .workspace {
-    padding: 0 6px;
-    margin: 0 3px;
+
+/* Main waybar window */
+window#waybar {
     background-color: transparent;
+    color: #cdd6f4;
+}
+
+/* Individual modules styling */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: rgba(30, 30, 46, 0.9);
+    border-radius: 8px;
+    margin: 2px 4px;
+    padding: 0 2px;
+    border: 1px solid rgba(205, 214, 244, 0.1);
+}
+
+/* OS Icon */
+#custom-OS {
+  color: #89b4fa;
+    font-size: 18px;
+    padding: 6px 12px;
+    margin-right: 4px;
+    background: rgba(137, 180, 250, 0.1);
+    border-radius: 8px;
     transition: all 0.2s ease;
-    font-size: 12px;
 }
 
-.workspace.focused {
-    background-color: #88c0d0;
-    color: #2e3440;
-    font-weight: bold;
+#custom-OS:hover {
+    background: rgba(137, 180, 250, 0.2);
 }
 
-.workspace.occupied {
-    background-color: #4c566a;
-    color: #eceff4;
+/* Workspaces */
+#workspaces {
+    background: rgba(49, 50, 68, 0.8);
+    border-radius: 8px;
+    padding: 1px 4px;
+    margin: 0 2px;
 }
 
-.workspace.empty {
+#workspaces button {
+    padding: 2px 6px;
+    margin: 1px;
+    color: #6c7086;
     background-color: transparent;
-    color: #888888;
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 
-.workspace.urgent {
-    background-color: #bf616a;
-    color: #ffffff;
-    animation: pulse 1s infinite alternate;
+#workspaces button:hover {
+    color: #cdd6f4;
+    background: rgba(205, 214, 244, 0.1);
 }
 
-   
-   #custom-os {
-    background-color: transparent;
-    color: transparent;
-    font-size: 18px;
+#workspaces button.active {
+    color: #89b4fa;
+    background: rgba(137, 180, 250, 0.2);
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+    background: rgba(243, 139, 168, 0.2);
+}
+
+/* Spotify - Simplified */
+#custom-spotify {
+    color: #000000;
+    background: #1db954;
+    padding: 4px 8px;
+    border-radius: 8px;
     font-weight: bold;
-    padding: 0 3px;
+    transition: all 0.2s ease;
+}
+
+#custom-spotify:hover {
+    background: #1ed760;
+}
+
+/* Network */
+#network {
+    color: #94e2d5;
+    padding: 4px 8px;
+    background: rgba(148, 226, 213, 0.1);
+    border-radius: 6px;
     margin: 0 1px;
-   }
-  
-   #clock{
-    font-size: 18px;
-    font-weight: bold;
-        
-
-   }
-
-   #date{
-    font-size: 18px;
-    font-weight: bold;
-    padding: 6px;
-   }
-
-  .network {
-    padding: 0 6px;
-    font-size: 18px;
-    color: #d8dee9;
 }
 
+#network.disconnected {
+    color: #f38ba8;
+    background: rgba(243, 139, 168, 0.1);
+}
 
+/* Clock */
+#clock {
+    color: #fab387;
+    padding: 4px 8px;
+    background: rgba(250, 179, 135, 0.1);
+    border-radius: 6px;
+    margin: 0 1px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
 
+#clock:hover {
+    background: rgba(250, 179, 135, 0.2);
+}
 
+/* Audio */
+#pulseaudio {
+    color: #cba6f7;
+    padding: 4px 8px;
+    background: rgba(203, 166, 247, 0.1);
+    border-radius: 6px;
+    margin: 0 1px;
+    transition: all 0.2s ease;
+}
 
+#pulseaudio:hover {
+    background: rgba(203, 166, 247, 0.2);
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+    background: rgba(108, 112, 134, 0.1);
+}
+
+#pulseaudio.bluetooth {
+    color: #89b4fa;
+    background: rgba(137, 180, 250, 0.1);
+}
+
+/* Battery */
+#battery {
+    color: #a6e3a1;
+    padding: 4px 8px;
+    background: rgba(166, 227, 161, 0.1);
+    border-radius: 6px;
+    margin: 0 1px;
+}
+
+#battery.charging, #battery.plugged {
+    color: #f9e2af;
+    background: rgba(249, 226, 175, 0.1);
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    background: rgba(243, 139, 168, 0.2);
+}
+
+#battery.warning:not(.charging) {
+    color: #fab387;
+    background: rgba(250, 179, 135, 0.1);
+}
