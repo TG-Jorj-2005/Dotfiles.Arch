@@ -10,7 +10,6 @@ if true then return {} end
 -- * override the configuration of LazyVim plugins
 return {
 
-
   -- add gruvbox
   { "ellisonleao/gruvbox.nvim" },
 
@@ -30,14 +29,22 @@ return {
   },
 
   -- disable trouble
-  { "folke/trouble.nvim",      enabled = false },
+  { "folke/trouble.nvim", enabled = false },
 
   -- override nvim-cmp and add cmp-emoji
   {
     "hrsh7th/nvim-cmp",
-    dependencies = { "hrsh7th/cmp-emoji" },
     opts = function(_, opts)
-      table.insert(opts.sources, { name = "emoji" })
+      local cmp = require("cmp")
+      opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.confirm({ select = true }) -- confirmă sugestia
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+      })
     end,
   },
 
@@ -195,6 +202,4 @@ return {
       },
     },
   },
-
-
 }
