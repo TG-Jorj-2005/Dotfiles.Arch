@@ -1,0 +1,17 @@
+{
+   "layer":"top",
+   "height":25,
+   "modules-left":["custom/OS","hyprland/workspaces", "custom/spotify", "NetworkManager"],
+   "modules-center":["clock"],
+   "modules-right"":["pulseaudio","baterry"],
+
+   "custom/OS":{
+      "format":" "
+  }
+
+
+
+
+
+
+}
