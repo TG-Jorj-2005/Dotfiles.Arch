@@ -1,17 +1,14 @@
 {
    "layer":"top",
-   "height":32,
+   "height":34,
    "modules-left":["custom/OS","hyprland/workspaces", "custom/spotify", "network"],
    "modules-center":["clock"],
    "modules-right":["pulseaudio","battery"],
 
    "custom/OS":{
-      "format":"{icon} ",
+      "format":" ",
       "on-click":"alacritty",
-      "format-icons":{
-         "icon":"  "
-      },
-      "icon-size":30,
+      "font-size":30,
   },
 
   "hyprland/workspaces":{
@@ -46,18 +43,14 @@
 },
 
 
- "network": {
-    "interface": "wlp2s0",
-    "format": "{icon}",
-    "format-icons": {
-        "connected": "",
-        "disconnected": "睊",
-        "connecting": ""
-    },
-    "on-click": "AdvancedNetworkManager",
-    "interval": 10,
-    "tooltip": true
-},
+  "network": {
+        "format-wifi": "   {essid} ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+  },
+
 
    "clock": {
         "format": "{:%H:%M}",
@@ -70,7 +63,7 @@
         "format-bluetooth": "{icon} {volume}%",
         "format-muted": "",
         "format-icons": {
-            "headphone": "",
+            "headphone": " ",
             "hands-free": "",
             "headset": "",
             "phone": "",

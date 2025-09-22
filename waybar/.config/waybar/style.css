@@ -1,15 +1,69 @@
- * {
-    margin: 0;
-    padding: 0;
-    border:none;
-    font-family: "JetBrains Mono", monospace;
-  
-  }
+* {
+  background-color: transparent ;
+  font-family: "FiraCode Nerd Font", "JetBrainsMono Nerd Font", monospace;
+}
+ .window{
+   background-color: transparent;
+ }
+  .workspace {
+    padding: 0 6px;
+    margin: 0 3px;
+    background-color: transparent;
+    transition: all 0.2s ease;
+    font-size: 12px;
+}
 
-  #window {
-    background-color: #1e1e1e;
-    color: #d4d4d4;
-  }
+.workspace.focused {
+    background-color: #88c0d0;
+    color: #2e3440;
+    font-weight: bold;
+}
+
+.workspace.occupied {
+    background-color: #4c566a;
+    color: #eceff4;
+}
+
+.workspace.empty {
+    background-color: transparent;
+    color: #888888;
+}
+
+.workspace.urgent {
+    background-color: #bf616a;
+    color: #ffffff;
+    animation: pulse 1s infinite alternate;
+}
+
+   
+   #custom-os {
+    background-color: transparent;
+    color: transparent;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 3px;
+    margin: 0 1px;
+   }
+  
+   #clock{
+    font-size: 18px;
+    font-weight: bold;
+        
+
+   }
+
+   #date{
+    font-size: 18px;
+    font-weight: bold;
+    padding: 6px;
+   }
+
+  .network {
+    padding: 0 6px;
+    font-size: 18px;
+    color: #d8dee9;
+}
+
 
 
 
