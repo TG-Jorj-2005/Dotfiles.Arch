@@ -10,8 +10,8 @@
     "modules-left": ["custom/OS", "hyprland/workspaces", "custom/spotify", "network"],
     "modules-center": ["clock"],
     "modules-right": ["pulseaudio", "battery"],
+
     
-    // Enhanced OS module
     "custom/OS": {
         "format": "󰣇 ",
         "on-click": "alacritty",
@@ -20,7 +20,6 @@
         "tooltip-format": "Click: Terminal | Right-click: App launcher"
     },
     
-    // Enhanced workspaces
     "hyprland/workspaces": {
         "disable-scroll": false,
         "all-outputs": true,
@@ -48,9 +47,9 @@
     },
 
     
-    // Enhanced Spotify with better controls
     "custom/spotify": {
-        "format": " {text}",
+        "format": "{icon}{text}",
+        "format-icons": " ",
         "return-type": "json",
         "max-length": 40,
         "exec": "$HOME/.config/waybar/spotify_waybar",
@@ -66,7 +65,6 @@
     },
 
     
-    // Enhanced network
     "network": {
         "format-wifi": "󰤨  {essid}",
         "format-ethernet": "󰈀  Connected",
@@ -78,7 +76,6 @@
         "interval": 5
     },
     
-    // Enhanced clock with calendar
     "clock": {
         "format": "{:%H:%M}",
         "format-alt": "{:%a, %d %b %Y}",
@@ -106,7 +103,6 @@
         }
     },
     
-    // Enhanced pulseaudio
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-bluetooth": "󰂯 {icon} {volume}%",
@@ -130,7 +126,6 @@
         "tooltip-format": "Volume: {volume}%\nDevice: {desc}"
     },
     
-    // Enhanced battery
     "battery": {
         "states": {
             "good": 95,
@@ -145,6 +140,7 @@
         "tooltip-format": "Battery: {capacity}%\nTime: {time}\nPower: {power}W",
         "interval": 30,
         "on-click": "gnome-power-statistics"
-    },
+     },
+
 
 }
