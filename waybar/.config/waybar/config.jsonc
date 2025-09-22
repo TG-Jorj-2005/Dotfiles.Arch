@@ -1,13 +1,103 @@
 {
    "layer":"top",
-   "height":25,
-   "modules-left":["custom/OS","hyprland/workspaces", "custom/spotify", "NetworkManager"],
+   "height":32,
+   "modules-left":["custom/OS","hyprland/workspaces", "custom/spotify", "network"],
    "modules-center":["clock"],
-   "modules-right"":["pulseaudio","baterry"],
+   "modules-right":["pulseaudio","battery"],
 
    "custom/OS":{
-      "format":" "
-  }
+      "format":"{icon} ",
+      "on-click":"alacritty",
+      "format-icons":{
+         "icon":"  "
+      },
+      "icon-size":30,
+  },
+
+  "hyprland/workspaces":{
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10"
+        },
+  },
+     
+"custom/spotify": {
+  "exec": "playerctl metadata --format '{{ artist }} - {{ title }}' ",
+  "format": "  {}",
+  "on-click": "playerctl play-pause",
+  "on-scroll-up": "playerctl next",
+  "on-scroll-down": "playerctl previous",
+  "interval": 2,
+  "tooltip": true,
+  "tooltip-format": "{artist} - {title}",
+  "tooltip-max-length": 50
+},
+
+
+ "network": {
+    "interface": "wlp2s0",
+    "format": "{icon}",
+    "format-icons": {
+        "connected": "",
+        "disconnected": "睊",
+        "connecting": ""
+    },
+    "on-click": "AdvancedNetworkManager",
+    "interval": 10,
+    "tooltip": true
+},
+
+   "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%a %b %d}",
+        "tooltip": false
+    },
+
+  "pulseaudio":{
+       "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol"
+
+
+  },
+  "baterry":{
+      "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "bat":"BAT1",
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-discharging": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": [" ", " ", " ", " ", " "]
+       
+  },
 
 
 
