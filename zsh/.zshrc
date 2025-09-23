@@ -4,7 +4,10 @@ eval "$(starship init zsh)"
 export EDITOR="nvim"
 export HYPRSHOT_DIR="$HOME/Pictures/Screen_Shot/"
 
-
+if [[ -n $PS1 ]]; then
+   ~/.config/neofetch/animated-neofetch.sh 0.05
+  clear
+fi
 #NEOFETCH
 neofetch
 
