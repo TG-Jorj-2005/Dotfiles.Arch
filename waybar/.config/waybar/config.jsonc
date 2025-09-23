@@ -8,8 +8,8 @@
     "margin-right": 12,
     
     "modules-left": ["custom/OS", "hyprland/workspaces", "custom/spotify", "network"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "battery"],
+    "modules-center": ["wlr/taskbar"],
+    "modules-right": ["clock","pulseaudio", "battery"],
 
     
     "custom/OS": {
@@ -141,6 +141,13 @@
         "interval": 30,
         "on-click": "gnome-power-statistics"
      },
-
+    
+     "wlr/taskbar":{
+          "format": "{icon}",
+        "icon-size": 17,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+  },
 
 }

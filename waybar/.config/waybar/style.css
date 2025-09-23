@@ -38,7 +38,6 @@ window#waybar {
 }
 
 #custom-OS:hover {
-    background: rgba(137, 180, 250, 0.2);
 }
 
 /* Workspaces */
@@ -75,8 +74,7 @@ window#waybar {
 
 /* Spotify - Simplified */
 #custom-spotify {
-    color: #000000;
-    background: #1db954;
+    color: #1db954;
     padding: 0px 10px;
     border-radius: 8px;
     font-size: 12px;
@@ -85,14 +83,12 @@ window#waybar {
 }
 
 #custom-spotify:hover {
-    background: #1ed760;
 }
 
 /* Network */
 #network {
     color: #94e2d5;
     padding: 4px 8px;
-    background: rgba(148, 226, 213, 0.1);
     border-radius: 6px;
     margin: 0 1px;
 }
@@ -105,8 +101,7 @@ window#waybar {
 /* Clock */
 #clock {
     color: #fab387;
-    padding: 4px 8px;
-    background: rgba(250, 179, 135, 0.1);
+    padding: 4px 14px;
     border-radius: 6px;
     margin: 0 1px;
     font-weight: bold;
@@ -114,21 +109,20 @@ window#waybar {
 }
 
 #clock:hover {
-    background: rgba(250, 179, 135, 0.2);
+    background: transparent;
 }
 
 /* Audio */
 #pulseaudio {
     color: #cba6f7;
     padding: 4px 8px;
-    background: rgba(203, 166, 247, 0.1);
     border-radius: 6px;
     margin: 0 1px;
     transition: all 0.2s ease;
 }
 
 #pulseaudio:hover {
-    background: rgba(203, 166, 247, 0.2);
+    background: transparent;
 }
 
 #pulseaudio.muted {
@@ -145,7 +139,6 @@ window#waybar {
 #battery {
     color: #a6e3a1;
     padding: 4px 8px;
-    background: rgba(166, 227, 161, 0.1);
     border-radius: 6px;
     margin: 0 1px;
 }
@@ -163,4 +156,21 @@ window#waybar {
 #battery.warning:not(.charging) {
     color: #fab387;
     background: rgba(250, 179, 135, 0.1);
+}
+
+#taskbar{
+  background-color:transparent;
+}
+
+#taskbar button {
+    border: none;
+    border-radius: 3px;
+    margin: 0 2px;
+    padding: 0 6px;
+    transition: all 0.2s ease;
+
+}
+
+#taskbar button:hover{
+  background-color:transparent;
 }
