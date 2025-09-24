@@ -3,6 +3,7 @@ eval "$(starship init zsh)"
 #EXPORTS
 export EDITOR="nvim"
 export HYPRSHOT_DIR="$HOME/Pictures/Screen_Shot/"
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
 
 #NEOFETCH
 neofetch
