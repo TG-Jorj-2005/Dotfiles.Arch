@@ -8,6 +8,7 @@ export ELECTRON_OZONE_PLATFORM_HINT=wayland
 #NEOFETCH
 neofetch
 
+
 # FILE History
 HISTFILE=~/.history
 HISTSIZE=10000
