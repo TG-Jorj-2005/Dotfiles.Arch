@@ -4,6 +4,8 @@ eval "$(starship init zsh)"
 export EDITOR="nvim"
 export HYPRSHOT_DIR="$HOME/Pictures/Screen_Shot/"
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export WINE_CPU_TOPOLOGY=12:0
+export WINEFSYNC=1
 
 #NEOFETCH
 neofetch
