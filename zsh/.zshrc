@@ -20,11 +20,6 @@ setopt inc_append_history
 setopt HIST_FIND_NO_DUPS
 setopt share_history
 
-plugins =(
-  git
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
 
 #FUNCTII
 jrj(){
