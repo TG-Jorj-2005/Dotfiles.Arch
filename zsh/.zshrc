@@ -18,6 +18,7 @@ SAVEHIST=50000
 
 setopt inc_append_history
 
+
 #FUNCTII
 jrj(){
   git add .
@@ -38,3 +39,4 @@ sys(){
 
 #Aliasuri
 alias code='code --enable-features=UseOzonePlatform --ozone-platform=wayland'
+alias dr = 'sudo chmod -R 755'
