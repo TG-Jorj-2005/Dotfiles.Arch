@@ -42,3 +42,8 @@ sys(){
 
 #Aliasuri
 alias code='code --enable-features=UseOzonePlatform --ozone-platform=wayland'
+
+#alias JAVA
+alias javacfx= 'javac --module-path $JAVAFX_HOME --add-modules javafx.controls,javafx.fxml'
+alias javafx= 'java --module-path $JAVAFX_HOME --add-modules javafx.controls,javafx.fxml'
+
