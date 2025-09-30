@@ -28,6 +28,12 @@ jrj(){
   git commit -m "$(date)"
   git push
 }
+javacfx(){
+  javac --module-path $JAVAFX_HOME --add-modules javafx.controls,javafx.fxml $1
+}
+javafx(){
+  java --module-path $JAVAFX_HOME --add-modules javafx.controls,javafx.fxml $1
+}
 
 
 sys(){
@@ -43,7 +49,4 @@ sys(){
 #Aliasuri
 alias code='code --enable-features=UseOzonePlatform --ozone-platform=wayland'
 
-#alias JAVA
-alias javacfx= 'javac --module-path $JAVAFX_HOME --add-modules javafx.controls,javafx.fxml'
-alias javafx= 'java --module-path $JAVAFX_HOME --add-modules javafx.controls,javafx.fxml'
 
