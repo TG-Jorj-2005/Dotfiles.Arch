@@ -1,188 +1,197 @@
 #!/bin/bash
-
-#Dupa salvare dai comanda chmod +x install_depedns.sh si apoi ./install_depends.sh 
-# Script pentru instalarea tuturor dependențelor pentru dotfiles
-# Autor: Script generat pentru dotfiles Hyprland
+# Script pentru instalarea dependențelor pentru dotfiles Hyprland
+# Doar instalează pachete - configurarea se face manual cu stow
 
 set -e
 
-echo "🚀 Instalez dependențele pentru dotfiles Hyprland..."
-
-# Colors pentru output
+# Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
-print_status() {
-    echo -e "${BLUE}[INFO]${NC} $1"
-}
+print_status() { echo -e "${BLUE}[INFO]${NC} $1"; }
+print_success() { echo -e "${GREEN}[SUCCESS]${NC} $1"; }
+print_error() { echo -e "${RED}[ERROR]${NC} $1"; }
 
-print_success() {
-    echo -e "${GREEN}[SUCCESS]${NC} $1"
-}
-
-print_warning() {
-    echo -e "${YELLOW}[WARNING]${NC} $1"
-}
-
-print_error() {
-    echo -e "${RED}[ERROR]${NC} $1"
-}
-
-# Check dacă rulează pe Arch Linux
-if ! command -v pacman &> /dev/null; then
-    print_error "Acest script este făcut pentru Arch Linux!"
-    exit 1
+# Check Arch Linux
+if ! command -v pacman &>/dev/null; then
+  print_error "Script pentru Arch Linux!"
+  exit 1
 fi
 
 # Update system
-print_status "Actualizez sistemul..."
+print_status "Actualizare sistem..."
 sudo pacman -Syu --noconfirm
 
-# Install base packages
-print_status "Instalez pachetele de bază..."
+# Base packages
+print_status "Pachete de bază..."
 sudo pacman -S --needed --noconfirm \
-    base-devel \
-    git \
-    curl \
-    wget \
-    unzip \
-    stow
+  base-devel git curl wget unzip stow
 
-# Install AUR helper (yay) if not present
-if ! command -v yay &> /dev/null; then
-    print_status "Instalez yay AUR helper..."
-    cd /tmp
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si --noconfirm
-    cd ~
+# Install yay
+if ! command -v yay &>/dev/null; then
+  print_status "Instalare yay..."
+  cd /tmp
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg -si --noconfirm
+  cd ~
 fi
 
-# ==================== HYPRLAND & WAYLAND ====================
-print_status "Instalez Hyprland și componente Wayland..."
-yay -S --needed --noconfirm \
-    hyprland \
-    xdg-desktop-portal-hyprland \
-    xdg-desktop-portal-gtk \
-    qt5-wayland \
-    qt6-wayland \
-    polkit-kde-agent \
-    wlroots
+# ==================== HYPRLAND ====================
+print_status "Hyprland și Wayland..."
+sudo pacman -S --needed --noconfirm \
+  hyprland \
+  xdg-desktop-portal-hyprland \
+  xdg-desktop-portal-gtk \
+  qt5-wayland \
+  qt6-wayland \
+  polkit \
+  polkit-kde-agent \
+  lxqt-policykit \
+  wayland \
+  xorg-xwayland
 
 # ==================== ALACRITTY ====================
-print_status "Instalez Alacritty terminal..."
+print_status "Alacritty..."
 sudo pacman -S --needed --noconfirm alacritty
 
 # ==================== WAYBAR ====================
-print_status "Instalez Waybar..."
-sudo pacman -S --needed --noconfirm waybar
-
-# ==================== DUNST (Notifications) ====================
-print_status "Instalez Dunst pentru notificări..."
+print_status "Waybar și dependențe..."
 sudo pacman -S --needed --noconfirm \
-    dunst \
-    libnotify
+  waybar \
+  playerctl \
+  pamixer \
+  brightnessctl \
+  gcc \
+  make
 
-# ==================== NVIM ====================
-print_status "Instalez Neovim și dependențe de sistem..."
+# ==================== DUNST ====================
+print_status "Dunst..."
 sudo pacman -S --needed --noconfirm \
-    neovim \
-    nodejs \
-    npm \
-    python \
-    python-pip \
-    luarocks \
-    ripgrep \
-    fd \
-    fzf
+  dunst \
+  libnotify
 
-# LazyVim se va configura automat la prima pornire a Neovim
+# ==================== ROFI ====================
+print_status "Rofi..."
+sudo pacman -S --needed --noconfirm rofi-wayland
+
+# ==================== NEOVIM ====================
+print_status "Neovim și dependențe..."
+sudo pacman -S --needed --noconfirm \
+  neovim \
+  nodejs \
+  npm \
+  python \
+  python-pip \
+  luarocks \
+  ripgrep \
+  fd \
+  fzf \
+  lazygit \
+  tree-sitter \
+  tree-sitter-cli \
+  lua \
+  stylua
+
+# ==================== TMUX ====================
+print_status "Tmux..."
+sudo pacman -S --needed --noconfirm tmux
 
 # ==================== ZSH & STARSHIP ====================
-print_status "Instalez Zsh și Starship..."
+print_status "Zsh și Starship..."
 sudo pacman -S --needed --noconfirm \
-    zsh \
-    zsh-completions \
-    starship
+  zsh \
+  zsh-completions \
+  zsh-syntax-highlighting \
+  zsh-autosuggestions \
+  starship
 
-# ==================== GTK THEMES ====================
-print_status "Instalez teme GTK și iconuri..."
-yay -S --needed --noconfirm \
-    nwg-look \
-    lxappearance \
-    arc-gtk-theme \
-    papirus-icon-theme \
-    catppuccin-gtk-theme-mocha \
-    dracula-gtk-theme
+# ==================== NEOFETCH ====================
+print_status "Neofetch..."
+sudo pacman -S --needed --noconfirm neofetch
+
+# ==================== GTK/QT ====================
+print_status "Teme GTK/QT..."
+sudo pacman -S --needed --noconfirm \
+  gtk3 \
+  gtk4 \
+  qt5ct \
+  qt6ct \
+  kvantum \
+  dracula-gtk-theme \
+  papirus-icon-theme \
+  lxappearance
 
 # ==================== FONTS ====================
-# Install nerd-fonts cu opțiunea default pentru toate întrebările
-print_status "Instalez Nerd Fonts (va dura câteva minute)..."
-echo -e "\n" | sudo pacman -S nerd-fonts
-print_status "Sugerez Varianta default dar tu stii cel mai bine"
+print_status "Fonturi..."
+sudo pacman -S --needed --noconfirm \
+  ttf-firacode-nerd \
+  ttf-jetbrains-mono-nerd \
+  ttf-font-awesome \
+  noto-fonts \
+  noto-fonts-emoji
 
 # ==================== AUDIO ====================
-print_status "Instalez sistem audio..."
+print_status "Audio..."
 sudo pacman -S --needed --noconfirm \
-    pipewire \
-    pipewire-alsa \
-    pipewire-pulse \
-    pipewire-jack \
-    wireplumber \
-    pavucontrol
+  pipewire \
+  pipewire-alsa \
+  pipewire-pulse \
+  pipewire-jack \
+  wireplumber \
+  pavucontrol
 
-# ==================== UTILS & TOOLS ====================
-print_status "Instalez utilitare generale..."
+# ==================== WALLPAPER ====================
+print_status "Wallpaper tools..."
 sudo pacman -S --needed --noconfirm \
-    nautilus \
-    nautilus-sendto \
-    gvfs \
-    gvfs-mtp \
-    file-roller \
-    firefox \
-    brightnessctl \
-    playerctl \
-    grim \
-    slurp \
-    swappy \
-    wl-clipboard \
-    cliphist \
-    tree \
-    htop \
-    btop \
-    neofetch \
-    fastfetch
+  imagemagick \
+  ffmpeg
 
 yay -S --needed --noconfirm \
-    nautilus-admin \
-    swww \
-    mpvpaper
+  swww \
+  mpvpaper-git
 
-# ==================== PROGRAMMING TOOLS ====================
-print_status "Instalez tools pentru programare..."
+# ==================== SCREENSHOTS ====================
+print_status "Screenshot tools..."
 sudo pacman -S --needed --noconfirm \
-    code \
-    docker \
-    docker-compose \
-    lazygit \
-    github-cli
+  grim \
+  slurp \
+  wl-clipboard \
+  flameshot
 
-# ==================== MULTIMEDIA ====================
-print_status "Instalez aplicații multimedia..."
+yay -S --needed --noconfirm grimblast-git
+
+# ==================== NETWORK & BLUETOOTH ====================
+print_status "Network și Bluetooth..."
 sudo pacman -S --needed --noconfirm \
-    mpv \
-    vlc \
-    gimp \
-    obs-studio \
-    ffmpeg
+  networkmanager \
+  network-manager-applet \
+  nm-connection-editor \
+  bluez \
+  bluez-utils \
+  blueman
 
-# ==================== SYSTEM SERVICES ====================
-print_status "Activez serviciile de sistem..."
-sudo systemctl enable docker
-sudo usermod -aG docker $USER
+# ==================== UTILITIES ====================
+print_status "Utilitare..."
+sudo pacman -S --needed --noconfirm \
+  dolphin \
+  htop \
+  btop \
+  tree
 
-print_success "🎉 Toate dependențele au fost instalate cu succes!"
-print_success "Acum poți aplica dotfiles-urile cu stow."
+# ==================== ENABLE SERVICES ====================
+print_status "Activare servicii..."
+sudo systemctl enable --now NetworkManager.service
+sudo systemctl enable --now bluetooth.service
+
+print_success "================================"
+print_success "Instalare completă!"
+print_success "================================"
+echo ""
+echo "Dependențe instalate. Pași următori:"
+echo "1. cd ~/Dotfiles.Arch"
+echo "2. stow alacritty waybar hyprland nvim tmux zsh (etc.)"
+echo "3. Restart sau relogin"
