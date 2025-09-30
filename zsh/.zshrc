@@ -39,4 +39,3 @@ sys(){
 
 #Aliasuri
 alias code='code --enable-features=UseOzonePlatform --ozone-platform=wayland'
-alias dr = 'sudo chmod -R 755'
