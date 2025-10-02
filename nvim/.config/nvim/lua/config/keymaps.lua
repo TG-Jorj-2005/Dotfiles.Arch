@@ -1,4 +1,16 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
-vim.api.nvim_set_keymap("i", "<Tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+local opts = { noremap = true, silent = true }
+vim.g.mapleader = " "
+
+vim.api.nvim_set_keymap("n", "<leader>e", ":Neotree toggle<CR>", opts)
+
+vim.api.nvim_set_keymap("n", "<leader>sv", ":Neotree open reveal<CR>", opts)
+
+vim.api.nvim_set_keymap("n", "<leader>sh", ":split<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>sv", ":vsplit<CR>", opts)
+
+vim.api.nvim_set_keymap("n", "<leader>q", ":close<CR>", opts)
+
+vim.api.nvim_set_keymap("n", "<S-l>", ":bnext<CR>", opts)
+vim.api.nvim_set_keymap("n", "<S-h>", ":bprevious<CR>", opts)
+
+vim.api.nvim_set_keymap("n", "<leader>bd", ":bd<CR>", opts)
