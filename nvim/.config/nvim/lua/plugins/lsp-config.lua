@@ -8,8 +8,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-         local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
+      local cmp_nvim_lsp = require("cmp_nvim_lsp")
       local capabilities = cmp_nvim_lsp.default_capabilities()
 
       -- UI config
@@ -53,6 +52,7 @@ return {
 
       -- Servere LSP
       local servers = {
+        -- Lua
         lua_ls = {
           settings = {
             Lua = {
@@ -62,15 +62,183 @@ return {
             },
           },
         },
+        
+        -- Python
         pyright = {},
+        pylsp = {},
+        ruff_lsp = {},
+        
+        -- JavaScript/TypeScript
         ts_ls = {},
+        denols = {},
+        biome = {},
+        
+        -- Web Development
         html = {},
         cssls = {},
+        tailwindcss = {},
+        emmet_ls = {},
+        svelte = {},
+        vuels = {},
+        astro = {},
+        
+        -- JSON/YAML/TOML
         jsonls = {},
+        yamlls = {},
+        taplo = {}, -- TOML
+        
+        -- Markdown
+        marksman = {},
+        
+        -- Bash/Shell
+        bashls = {},
+        
+        -- Docker
+        dockerls = {},
+        docker_compose_language_service = {},
+        
+        -- ESLint/Prettier
+        eslint = {},
+        
+        -- Go
+        gopls = {
+          settings = {
+            gopls = {
+              analyses = {
+                unusedparams = true,
+              },
+              staticcheck = true,
+            },
+          },
+        },
+        
+        -- Rust
+        rust_analyzer = {
+          settings = {
+            ["rust-analyzer"] = {
+              checkOnSave = {
+                command = "clippy",
+              },
+            },
+          },
+        },
+        
+        -- C/C++
+        clangd = {},
+        
+        -- C#
+        omnisharp = {},
+        
+        -- Java
+        jdtls = {},
+        
+        -- PHP
+        intelephense = {},
+        phpactor = {},
+        
+        -- Ruby
+        ruby_lsp = {},
+        solargraph = {},
+        
+        -- Elixir
+        elixirls = {},
+        
+        -- Erlang
+        erlangls = {},
+        
+        -- Haskell
+        hls = {},
+        
+        -- Zig
+        zls = {},
+        
+        -- Swift
+        sourcekit = {},
+        
+        -- Kotlin
+        kotlin_language_server = {},
+        
+        -- Scala
+        metals = {},
+        
+        -- Dart/Flutter
+        dartls = {},
+        
+        -- R
+        r_language_server = {},
+        
+        -- Julia
+        julials = {},
+        
+        -- Terraform
+        terraformls = {},
+        tflint = {},
+        
+        -- Ansible
+        ansiblels = {},
+        
+        -- SQL
+        sqlls = {},
+        sqls = {},
+        
+        -- GraphQL
+        graphql = {},
+        
+        -- Prisma
+        prismals = {},
+        
+        -- LaTeX
+        texlab = {},
+        
+        -- XML
+        lemminx = {},
+        
+        -- CMake
+        cmake = {},
+        
+        -- Nix
+        nil_ls = {},
+        
+        -- Vim
+        vimls = {},
+        
+        -- Assembly
+        asm_lsp = {},
+        
+        -- Protocol Buffers
+        bufls = {},
+        
+        -- Perl
+        perlnavigator = {},
+        
+        -- OCaml
+        ocamllsp = {},
+        
+        -- Fortran
+        fortls = {},
+        
+        -- COBOL
+        cobol_ls = {},
+        
+        -- PowerShell
+        powershell_es = {},
+        
+        -- Groovy
+        groovyls = {},
+        
+        -- Puppet
+        puppet = {},
+        
+        -- Salt
+        salt_ls = {},
+        
+        -- Helm
+        helm_ls = {},
       }
 
+
       for server, config in pairs(servers) do
-       vim.lsp.config(server, vim.tbl_deep_extend("force",{
+       vim.lsp.config(server,vim.tbl_deep_extend("force",{
           capabilities = capabilities,
           on_attach = on_attach,
         }, config))
@@ -101,12 +269,21 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "lua_ls",
-          "pyright",
-          "ts_ls",
-          "html",
-          "cssls",
-          "jsonls",
+        "lua_ls",
+        "pyright",
+        "ts_ls",
+        "html",
+        "cssls",
+        "tailwindcss",
+        "jsonls",
+        "yamlls",
+        "bashls",
+        "dockerls",
+        "eslint",
+        "gopls",
+        "rust_analyzer",
+        "clangd",
+        "marksman",
         },
         automatic_installation = true,
       })
