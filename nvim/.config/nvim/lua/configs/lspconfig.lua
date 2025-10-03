@@ -10,6 +10,8 @@ lspconfig.servers = {
     "clangd",
     "pyright",
     "jdtls",
+    "cssls",
+    "html",
 }
 
 -- list of servers configured with default config.

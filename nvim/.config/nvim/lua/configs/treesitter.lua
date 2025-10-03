@@ -1,6 +1,8 @@
 local options = {
     ensure_installed = {
         "bash",
+        "css",
+        "html",
         "java",
         "javadoc",
         "python",
