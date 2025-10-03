@@ -4,11 +4,27 @@ local options = {
         c = { "clang_format" },
         cpp = { "clang_format" },
         c_cpp = { "clang-format" }, --hack
+        python = { "isort", "black" },
         -- css = { "prettier" },
         -- html = { "prettier" },
     },
 
     formatters = {
+        -- Python
+        black = {
+            prepend_args = {
+                "--fast",
+                "--line-length",
+                "80",
+            },
+        },
+        isort = {
+            prepend_args = {
+                "--profile",
+                "black",
+            },
+        },
+
         ["clang-format"] = {
             prepend_args = {
                 "-style={ \

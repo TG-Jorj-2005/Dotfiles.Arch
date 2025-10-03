@@ -8,10 +8,11 @@ local lspconfig = require("lspconfig")
 lspconfig.servers = {
     "lua_ls",
     "clangd",
+    "pyright",
 }
 
 -- list of servers configured with default config.
-local default_servers = { "clangd" }
+local default_servers = { "clangd", "pyright" }
 
 -- lsps with default config
 for _, lsp in ipairs(default_servers) do

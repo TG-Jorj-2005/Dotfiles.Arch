@@ -1,6 +1,7 @@
 local options = {
     ensure_installed = {
         "bash",
+        "python",
         "c",
         "cmake",
         "cpp",
