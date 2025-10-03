@@ -5,11 +5,16 @@ local options = {
         cpp = { "clang_format" },
         c_cpp = { "clang-format" }, --hack
         python = { "isort", "black" },
+        java = { "google-java-format" },
         -- css = { "prettier" },
         -- html = { "prettier" },
     },
 
     formatters = {
+        --java
+        ["google-java-format"] = {
+            args = { "-" },
+        },
         -- Python
         black = {
             prepend_args = {
@@ -24,7 +29,7 @@ local options = {
                 "black",
             },
         },
-
+        --Cpp
         ["clang-format"] = {
             prepend_args = {
                 "-style={ \
