@@ -4,12 +4,17 @@ lint.linters_by_ft = {
     lua = { "luacheck" },
 }
 
--- lint.linters.luacheck.args = {
---     unpack(lint.linters.luacheck.args),
---     "--globals",
---     "love",
---     "vim",
--- }
+lint.linters.luacheck.args = {
+    --unpack(lint.linters.luacheck.args),
+    "--globals",
+    "love",
+    "vim",
+    "--formater",
+    "plain",
+    "--codes",
+    "--ranges",
+    "-",
+}
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
     callback = function()
