@@ -1,6 +1,8 @@
 local options = {
     ensure_installed = {
         "bash",
+        "java",
+        "javadoc",
         "python",
         "c",
         "cmake",

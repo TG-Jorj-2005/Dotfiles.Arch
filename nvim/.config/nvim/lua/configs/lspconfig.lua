@@ -9,10 +9,11 @@ lspconfig.servers = {
     "lua_ls",
     "clangd",
     "pyright",
+    "jdtls",
 }
 
 -- list of servers configured with default config.
-local default_servers = { "clangd", "pyright" }
+local default_servers = { "clangd", "pyright", "jdtls" }
 
 -- lsps with default config
 for _, lsp in ipairs(default_servers) do
@@ -22,6 +23,17 @@ for _, lsp in ipairs(default_servers) do
         capabilities = capabilities,
     })
 end
+
+lspconfig.jdtls.setup({
+    on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+        on_attach(client)
+    end,
+
+    on_init = on_init,
+    capabilities = capabilities,
+})
 
 lspconfig.clangd.setup({
     on_attach = function(client)
