@@ -1,4 +1,23 @@
 
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="robbyrussell"
+
+plugins=(
+  git
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+)
+
+source $ZSH/oh-my-zsh.sh
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
+fi
+
+
 eval "$(starship init zsh)"
 #EXPORTS
 export EDITOR="nvim"
@@ -7,6 +26,7 @@ export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export WINE_CPU_TOPOLOGY=12:0
 export WINEFSYNC=1
 export JAVAFX_HOME=/home/jorj/.cache/yay/java-openjfx-bin/src/javafx-sdk-24.0.2/lib
+
 
 #NEOFETCH
 neofetch
