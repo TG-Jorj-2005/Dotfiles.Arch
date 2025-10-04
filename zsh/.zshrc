@@ -9,6 +9,8 @@ plugins=(
   zsh-autosuggestions
 )
 
+zstyle ':omz:lib:theme-and-appearance' gnu-ls yes
+
 source $ZSH/oh-my-zsh.sh
 
 if [[ -n $SSH_CONNECTION ]]; then
