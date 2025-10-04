@@ -28,6 +28,11 @@ jrj(){
   git commit -m "$(date)"
   git push
 }
+
+jrj2(){
+    sudo chown -R jorj:jorj $1
+}
+
 javacfx(){
   javac --module-path $JAVAFX_HOME --add-modules javafx.controls,javafx.fxml $1
 }
