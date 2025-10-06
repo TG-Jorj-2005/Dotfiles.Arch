@@ -27,14 +27,23 @@ for _, lsp in ipairs(default_servers) do
 end
 
 lspconfig.jdtls.setup({
-    on_attach = function(client)
+    on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
-        on_attach(client)
+
+        -- chemăm funcția globală de attach dacă o ai definită
+        if on_attach then
+            on_attach(client, bufnr)
+        end
     end,
 
     on_init = on_init,
     capabilities = capabilities,
+
+    -- detectează automat directorul proiectului (folosește .git, mvnw, gradlew etc.)
+    root_dir = require("lspconfig").util.root_pattern(".git", "mvnw", "gradlew", "pom.xml"),
+
+    cmd = { "jdtls" },
 })
 
 lspconfig.clangd.setup({
