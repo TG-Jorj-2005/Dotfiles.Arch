@@ -28,21 +28,20 @@ end
 
 lspconfig.jdtls.setup({
     on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
+        -- FIX: verifică dacă capabilities există
+        if client.server_capabilities then
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+        end
 
-        -- chemăm funcția globală de attach dacă o ai definită
+        -- chemăm funcția globală de attach
         if on_attach then
             on_attach(client, bufnr)
         end
     end,
-
     on_init = on_init,
     capabilities = capabilities,
-
-    -- detectează automat directorul proiectului (folosește .git, mvnw, gradlew etc.)
-    root_dir = require("lspconfig").util.root_pattern(".git", "mvnw", "gradlew", "pom.xml"),
-
+    root_dir = lspconfig.util.root_pattern(".git", "mvnw", "gradlew", "pom.xml", "build.gradle"),
     cmd = { "jdtls" },
 })
 
