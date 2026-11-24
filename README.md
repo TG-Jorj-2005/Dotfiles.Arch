@@ -15,8 +15,6 @@ developer tooling, automation, and workflow improvements.
 
 ---
 
-https://github.com/user-attachments/assets/d67927cf-eb23-4eb1-ac72-37774e03c61f
-
 ## ✨ Highlights
 
 - 🐧 **Arch Linux** based environment
