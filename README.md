@@ -15,6 +15,8 @@ developer tooling, automation, and workflow improvements.
 
 ---
 
+[Watch the silent project video](https://tg-jorj-2005.github.io/proiecte/dotfiles-arch/#prezentare) · [MP4 file](docs/media/prezentare.mp4)
+
 ## ✨ Highlights
 
 - 🐧 **Arch Linux** based environment
