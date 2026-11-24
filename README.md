@@ -15,7 +15,7 @@ developer tooling, automation, and workflow improvements.
 
 ---
 
-[Watch the silent project video](https://tg-jorj-2005.github.io/proiecte/dotfiles-arch/#prezentare) · [MP4 file](docs/media/prezentare.mp4)
+https://github.com/user-attachments/assets/d67927cf-eb23-4eb1-ac72-37774e03c61f
 
 ## ✨ Highlights
 
