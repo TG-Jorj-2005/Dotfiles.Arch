@@ -15,6 +15,12 @@ developer tooling, automation, and workflow improvements.
 
 ---
 
+## Live demo
+
+A live Hyprland session on a virtual monitor using this repository’s desktop, launcher and terminal configuration.
+
+https://github.com/user-attachments/assets/0acedb50-7125-4554-baaa-5911de2eb789
+
 ## ✨ Highlights
 
 - 🐧 **Arch Linux** based environment
